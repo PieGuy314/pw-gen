@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -x /usr/bin/pwgen ] ; then
+  pwgen -Bs 12 1 | sed -E 's/(....)(....)(....)/\1-\2-\3/'
+else
+  echo "pwgen not found."
+  exit 1
+fi
