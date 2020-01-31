@@ -4,7 +4,7 @@ if [[ -x $(which pwgen) ]]; then
   pwgen -Bs 12 1 | sed -E 's/(....)(....)(....)/\1-\2-\3/'
 else
   while true; do
-    passwd=$(cat /dev/urandom | tr -dc 'a-hjkmnp-zA-HJ-NP-Z2-9' | fold -w 12 | sed -E 's/(....)(....)(....)/\1-\2-\3/' | head -n 1 | grep -E '[A-Z]' | grep -E '[0-9]')
+    passwd=$(cat /dev/urandom | tr -dc 'a-km-zA-HJ-NP-Z2-9' | fold -w 12 | sed -E 's/(....)(....)(....)/\1-\2-\3/' | head -n 1 | grep -E '[A-Z]' | grep -E '[0-9]')
     [[ ! -z "$passwd" ]] && echo "$passwd" && exit 0
   done
 fi
