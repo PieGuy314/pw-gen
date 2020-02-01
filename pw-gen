@@ -1,3 +1,22 @@
 #!/bin/bash
 
-cat /dev/urandom | tr -dc 'a-km-zA-HJ-NP-Z2-9' | fold -w 12 | grep -E '[A-Z]' | grep -E '[0-9]' | sed -E 's/(....)(....)(....)/\1-\2-\3/' | head -n 1
+usage()
+{
+  echo "Usage : ${0} [-B]"
+  exit 1
+}
+
+str="a-km-zA-HJ-NP-Z2-9"
+
+while getopts ":B" opt; do
+  case ${opt} in
+    B)
+      str="a-km-zACEFHJ-NPRT-Y3479"
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+
+cat /dev/urandom | tr -dc "${str}" | fold -w 12 | grep -E '[A-Z]' | grep -E '[0-9]' | sed -E 's/(....)(....)(....)/\1-\2-\3/' | head -n 1
