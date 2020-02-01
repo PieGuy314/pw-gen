@@ -3,7 +3,6 @@
 usage()
 {
   echo "Usage : ${0} [-B]"
-  exit 1
 }
 
 str="a-km-zA-HJ-NP-Z2-9"
@@ -15,6 +14,7 @@ while getopts ":B" opt; do
       ;;
     *)
       usage
+      exit 1
       ;;
   esac
 done
