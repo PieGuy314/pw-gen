@@ -1,8 +1,8 @@
 # pw-gen
 Password Generator
 
+<i>Usage: pw-gen [-B]</i>
+
 Generate a fairly strong password in the format xxxx-xxxx-xxxx
 
-Attempt to replicate the characteristics of 'pwgen' ableit with a less strict implementation of '--ambiguous'
-
-If that similarity is required, use 'a-km-zACEFHJ-NPRT-Y3479'
+By default several characters are ommitted to avoid ambiguity. For less ambigous output, use the '-B' command line option.
