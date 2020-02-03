@@ -2,7 +2,7 @@
 
 usage()
 {
-  echo "Usage : ${0} [-B]"
+  echo "Usage : $(basename ${0}) [-B]"
 }
 
 str="a-km-zA-HJ-NP-Z2-9"
